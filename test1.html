@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Programcılığı Sınavı</title>
+</head>
+<body>
+
+    <h1>Web Programcılığı Bilgi Testi</h1>
+
+    <form action="sonuclar.php" method="post">
+
+        <fieldset>
+            <legend>Başlangıç Bilgileri</legend>
+
+            <label for="ogrenci_no">Öğrenci Numaranız:</label><br>
+            <input type="text" id="ogrenci_no" name="ogr_no" required><br><br>
+
+            <label for="sinav_tarihi">Sınav Tarihi ve Saati:</label><br>
+            <input type="datetime-local" id="sinav_tarihi" name="sinav_zaman" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Sınav Soruları</legend>
+
+            <h3>1. HTML Form verileri hassas olduğunda hangi method kullanılmalıdır?</h3>
+            <input type="radio" id="q1_get" name="soru1" value="get">
+            <label for="q1_get">GET</label><br>
+            <input type="radio" id="q1_post" name="soru1" value="post" required>
+            <label for="q1_post">POST</label><br>
+            <input type="radio" id="q1_put" name="soru1" value="put">
+            <label for="q1_put">PUT</label><br><br>
+
+            <h3>2. Bir HTML elemanının ebeveyn düğümünü ifade eden DOM kavramları hangileridir?</h3>
+            <input type="checkbox" id="q2_node" name="soru2[]" value="Node">
+            <label for="q2_node">Node</label><br>
+            <input type="checkbox" id="q2_element" name="soru2[]" value="Element">
+            <label for="q2_element">Element</label><br>
+            <input type="checkbox" id="q2_parent" name="soru2[]" value="Parent_Node">
+            <label for="q2_parent">Parent Node</label> [cite: 7]<br><br>
+            
+            <h3>3. DOM Manipülasyonunun ne anlama geldiğini açıklayınız (Max 500 Karakter).</h3>
+            <textarea id="cevap3" name="soru3_aciklama" rows="5" cols="50" maxlength="500"></textarea><br><br>
+
+            <h3>4. Web Programlama dersini hangi yıl/ay aldınız?</h3>
+            <select name="soru4_ay" required>
+                <option value="" disabled selected>Ay Seçiniz</option>
+                <option value="ekim">Ekim</option>
+                <option value="kasım">Kasım</option>
+                <option value="aralik">Aralık</option>
+            </select>
+            <input type="month" name="soru4_yil" required> [cite: 155]
+            <br><br>
+
+            <h3>5. HTML bilginizi 0'dan 100'e kadar bir sayı ile puanlayın.</h3>
+            <input type="range" id="q5_puan" name="soru5_puan" min="0" max="100" oninput="rangeValue.innerText = this.value">
+            <span id="rangeValue">50</span><br><br>
+
+            <h3>6. Eğer varsa, bir önceki ödevinizin ekran görüntüsünü yükleyin.</h3>
+            <input type="file" id="q6_dosya" name="soru6_dosya"><br><br>
+        </fieldset>
+
+        <input type="submit" value="Sınavı Bitir ve Gönder">
+        <input type="reset" value="Cevapları Sıfırla">
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Üyelik Formu</title>
+</head>
+<body>
+
+    <h1>Yeni Üyelik Oluştur</h1>
+    <form action="form_gonder.php" method="post">
+
+        <fieldset>
+            <legend>Kişisel Bilgileriniz</legend> <label for="ad_soyad">Adınız ve Soyadınız:</label><br>
+            <input type="text" id="ad_soyad" name="tam_ad" placeholder="Ad Soyad" required><br><br>
+
+            <label for="email">E-Posta Adresiniz:</label><br>
+            <input type="email" id="email" name="eposta" placeholder="ornek@alanadi.com" required><br><br>
+
+            <label for="dogum_tarihi">Doğum Tarihiniz:</label><br>
+            <input type="date" id="dogum_tarihi" name="dogum_tarihi"><br><br>
+            
+            <label>Cinsiyet:</label><br>
+            <input type="radio" id="kadin" name="cinsiyet" value="kadin">
+            <label for="kadin">Kadın</label>
+            <input type="radio" id="erkek" name="cinsiyet" value="erkek">
+            <label for="erkek">Erkek</label><br><br>
+
+        </fieldset>
+        
+        <fieldset>
+            <legend>Hesap Bilgileri</legend>
+
+            <label for="sifre">Şifre:</label><br>
+            <input type="password" id="sifre" name="sifre" required minlength="6"><br><br>
+
+            <input type="checkbox" id="onay" name="sartname_onay" value="evet" required>
+            <label for="onay">Üyelik şartlarını okudum ve kabul ediyorum.</label><br><br>
+
+        </fieldset>
+
+        <input type="submit" value="Üye Ol">
+
+    </form>
+
+</body>
+</html>
