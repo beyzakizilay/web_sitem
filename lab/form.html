@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üyelik Formu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+            width: 400px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="test1.html" method="get">
+        <h2>Üyelik Formu</h2>
+
+        <label>Ad:</label>
+        <input type="text" name="ad" required>
+
+        <label>Soyad:</label>
+        <input type="text" name="soyad" required>
+
+        <label>E-posta:</label>
+        <input type="email" name="email" placeholder="ornek@mail.com" required>
+
+        <label>Şifre:</label>
+        <input type="password" name="sifre" minlength="6" required>
+
+        <label>Telefon:</label>
+        <input type="tel" name="telefon" placeholder="+90 5XX XXX XX XX">
+
+        <label>Doğum Tarihi:</label>
+        <input type="date" name="dogum">
+
+        <label>Cinsiyet:</label><br>
+        <input type="radio" name="cinsiyet" value="Kadın"> Kadın
+        <input type="radio" name="cinsiyet" value="Erkek"> Erkek
+        <input type="radio" name="cinsiyet" value="Diğer"> Diğer <br><br>
+
+        <label>Şehir:</label>
+        <select name="sehir">
+            <option value="">Seçiniz</option>
+            <option>Ankara</option>
+            <option>İstanbul</option>
+            <option>İzmir</option>
+            <option>Bursa</option>
+        </select>
+
+        <label>Profil Fotoğrafı:</label>
+        <input type="file" name="profil" accept="image/*">
+
+        <label>Hakkınızda:</label>
+        <textarea name="hakkinda" rows="3" placeholder="Kendiniz hakkında birkaç cümle yazın..."></textarea>
+
+        <label>
+            <input type="checkbox" required> Kullanım koşullarını kabul ediyorum
+        </label>
+
+        <input type="submit" value="Kaydol">
+    </form>
+
+</body>
+</html>
