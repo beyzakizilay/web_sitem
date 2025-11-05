@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Renk Değişimi Animasyonu</title>
+
+    <style>
+        @keyframes renkDegisim {
+            from { background-color: rgb(245, 5, 5); }
+            to { background-color: rgb(235, 227, 227); }
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: renkDegisim;
+            animation-duration: 4s;
+        }
+    </style>
 </head>
-<style>
-@keyframes renkDegisim
-{ from 
-	{background-color: rgb(245, 5, 5);}
-to 
-	{background-color: rgb(235, 227, 227);} }
-
-</style>
-
 <body>
-    <div
- {	width: 100px;
-    	height: 100px; 
-	background-color: red; 
-	animation-name: renkDegisim; 
-	animation-duration: 4s; 
-}
-
+    <div></div>
 </body>
 </html>
