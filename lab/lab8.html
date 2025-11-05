@@ -1,18 +1,16 @@
-port" content="width=device-width, initial-scale=1.0">
-  <title>Hafta 8 - CSS Animasyon ve Bootstrap</title>
-
-  <!-- Bootstrap CSS bağlantısı -->
-  <link 
-    rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-  >
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hafta 8 – CSS Animasyon Uygulaması</title>
 
   <style>
     body {
-      background-color: #343a40;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background-color: #fff5d9;       
+      height: 100vh;                    
+      display: flex;                
+      flex-direction: row;
       justify-content: center;
       align-items: center;
       text-align: center;
@@ -20,23 +18,23 @@ port" content="width=device-width, initial-scale=1.0">
     }
 
     h2 {
-      color: #343a40;
+      color: #333;
       margin-bottom: 40px;
     }
 
-    .anim-div {
+    .kutu {
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      position: relative;
-      display: flex;
+      margin: 20px;
+      display: inline-flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      margin: 20px auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      color: white;
+      position: relative;
+      color: #fff;
       font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
 
     .eyes {
@@ -49,128 +47,126 @@ port" content="width=device-width, initial-scale=1.0">
     .eye {
       width: 10px;
       height: 10px;
-      background: black;
+      background-color: black;
       border-radius: 50%;
     }
 
     .mouth {
       width: 40px;
       height: 10px;
-      background: black;
+      background-color: black;
       border-radius: 15px;
     }
 
-    .upDown {
-      background-color: #0c814f;
-      animation: upDown 2s ease-in-out infinite alternate;
+    .kutu1 {
+      background-color: #6f42c1;
+      animation-name: yukariAsagi;        
+      animation-duration: 2s;            
+      animation-iteration-count: infinite; 
+      animation-direction: alternate;    
+      animation-timing-function: ease-in-out; 
     }
-    @keyframes upDown {
-      from { transform: translateY(0); }
-      to { transform: translateY(-60px); }
+    @keyframes yukariAsagi {
+      from { transform: translateY(0); }   
+      to { transform: translateY(-60px); }  
     }
 
-    .growColor {
-      background-color: #b2a410;
-      animation: growColor 3s ease-in-out infinite;
+
+    .kutu2 {
+      background-color: #dc3545;
+      animation-name: buyuRenk;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
     }
-    @keyframes growColor {
+    @keyframes buyuRenk {
       0%   { transform: scale(1); background-color: #dc3545; }
-      50%  { transform: scale(1.3); background-color: #ffc107; }
+      50%  { transform: scale(1.4); background-color: #ffc107; }
       100% { transform: scale(1); background-color: #28a745; }
     }
 
-    .fade {
-      background-color: #eb85b5;
-      animation: fadeAnim 3s ease-in-out infinite;
+    .kutu3 {
+      background-color: #e83e8c;
+      animation-name: saydam;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
     }
-    @keyframes fadeAnim {
-      0% { opacity: 1; }
-      50% { opacity: 0.3; }
-      100% { opacity: 1; }
-    }
-
-    .leftRight {
-      background-color: #eb1641;
-      animation: leftRight 2s linear infinite alternate;
-    }
-    @keyframes leftRight {
-      from { transform: translateX(0); }
-      to { transform: translateX(70px); }
+    @keyframes saydam {
+      0% { opacity: 1; }     
+      50% { opacity: 0.3; }  
+      100% { opacity: 1; }    
     }
 
-    .rotate {
-      background-color: #d87d14;
-      animation: rotateAnim 3s linear infinite;
+    .kutu4 {
+      background-color: #007bff;
+      animation-name: sagaSola;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: linear; 
     }
-    @keyframes rotateAnim {
+    @keyframes sagaSola {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(70px); }
+    }
+
+
+    .kutu5 {
+      background-color: #20c997;
+      animation-name: don;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+    @keyframes don {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
 
-    .anim-div::after {
+  
+    .kutu::after {
       content: "";
       position: absolute;
       bottom: -12px;
       width: 70%;
       height: 10px;
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0,0,0,0.3);
       border-radius: 50%;
       filter: blur(3px);
-      left: 15%;
     }
 
   </style>
 </head>
 <body>
 
-  <h2>Lab Ödevi</h2>
+  <h2>Lab 8</h2>
 
-  <div class="container">
-    <div class="row justify-content-center">
-
-      <div class="col-6 col-md-2">
-        <div class="anim-div upDown">
-          <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
-          <div class="mouth"></div>
-        </div>
-        <p class="text-dark mt-2">Yukarı-Aşağı</p>
-      </div>
-
-      <div class="col-6 col-md-2">
-        <div class="anim-div growColor">
-          <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
-          <div class="mouth"></div>
-        </div>
-        <p class="text-dark mt-2">Büyüme & Renk</p>
-      </div>
-
-      <div class="col-6 col-md-2">
-        <div class="anim-div fade">
-          <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
-          <div class="mouth"></div>
-        </div>
-        <p class="text-dark mt-2">Transparan</p>
-      </div>
-
-      <div class="col-6 col-md-2">
-        <div class="anim-div leftRight">
-          <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
-          <div class="mouth"></div>
-        </div>
-        <p class="text-dark mt-2">Sağa-Sola</p>
-      </div>
-
-      <div class="col-6 col-md-2">
-        <div class="anim-div rotate">
-          <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
-          <div class="mouth"></div>
-        </div>
-        <p class="text-dark mt-2">Dönen</p>
-      </div>
-
-    </div>
+  <div class="kutu kutu1">
+    <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+    <div class="mouth"></div>
   </div>
 
+  <div class="kutu kutu2">
+    <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+    <div class="mouth"></div>
+  </div>
+
+  <div class="kutu kutu3">
+    <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+    <div class="mouth"></div>
+  </div>
+
+  <div class="kutu kutu4">
+    <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+    <div class="mouth"></div>
+  </div>
+
+  <div class="kutu kutu5">
+    <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+    <div class="mouth"></div>
+  </div>
 
 </body>
 </html>
