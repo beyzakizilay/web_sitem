@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hafta 7 Animasyon</title>
+
+  <style>
+    /* 🎨 Sayfa genel görünümü */
+    body {
+      background-color: #fff5d9;   /* açık sarı ton */
+      height: 100vh;              /* tam ekran yüksekliği */
+      margin: 0;
+      display: flex;
+      justify-content: center;    /* yatay ortalama */
+      align-items: center;        /* dikey ortalama */
+      flex-direction: column;
+      font-family: "Comic Sans MS", sans-serif;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    /* 🟢 Kapsayıcı: kutuları yatayda yanyana dizer */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px; /* kutular arası boşluk */
+      flex-wrap: wrap;
+    }
+
+    /* 🟡 Ortak stil - tüm karakterler */
+    .kutu {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+      font-weight: bold;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      overflow: visible; /* gölge için */
+    }
+
+    /* Göz ve ağız */
+    .eyes {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+    .eye {
+      width: 10px;
+      height: 10px;
+      background: black;
+      border-radius: 50%;
+    }
+    .mouth {
+      width: 40px;
+      height: 10px;
+      background: black;
+      border-radius: 15px;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 1️⃣ Yukarı - Aşağı giden animasyon */
+    .kutu1 {
+      background-color: #6f42c1;
+      animation-name: yukariAsagi;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+    }
+    @keyframes yukariAsagi {
+      from { transform: translateY(0); }
+      to { transform: translateY(-60px); }
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 2️⃣ Büyüyüp küçülen ve rengi değişen */
+    .kutu2 {
+      background-color: #dc3545;
+      animation-name: buyuRenk;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+    }
+    @keyframes buyuRenk {
+      0%   { transform: scale(1); background-color: #dc3545; }
+      50%  { transform: scale(1.4); background-color: #ffc107; }
+      100% { transform: scale(1); background-color: #28a745; }
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 3️⃣ Transparanlığı artıp azalan */
+    .kutu3 {
+      background-color: #e83e8c;
+      animation-name: saydam;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+    @keyframes saydam {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 4️⃣ Sağa - Sola giden */
+    .kutu4 {
+      background-color: #007bff;
+      animation-name: sagaSola;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: linear;
+    }
+    @keyframes sagaSola {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(70px); }
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 5️⃣ Dönen */
+    .kutu5 {
+      background-color: #20c997;
+      animation-name: don;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+    @keyframes don {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Alt gölge efekti */
+    .kutu::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 15%;
+      width: 70%;
+      height: 10px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+      filter: blur(3px);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+  <h2> Hafta 7 Animasyon Uygulaması</h2>
+
+  <div class="container">
+    <!-- 1️⃣ Yukarı-Aşağı -->
+    <div class="kutu kutu1" aria-label="karakter 1">
+      <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+      <div class="mouth"></div>
+    </div>
+
+    <!-- 2️⃣ Büyüme-Renk -->
+    <div class="kutu kutu2" aria-label="karakter 2">
+      <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+      <div class="mouth"></div>
+    </div>
+
+    <!-- 3️⃣ Transparan -->
+    <div class="kutu kutu3" aria-label="karakter 3">
+      <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+      <div class="mouth"></div>
+    </div>
+
+    <!-- 4️⃣ Sağa-Sola -->
+    <div class="kutu kutu4" aria-label="karakter 4">
+      <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+      <div class="mouth"></div>
+    </div>
+
+    <!-- 5️⃣ Dönen -->
+    <div class="kutu kutu5" aria-label="karakter 5">
+      <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+      <div class="mouth"></div>
+    </div>
+  </div>
+
+</body>
+</html>
