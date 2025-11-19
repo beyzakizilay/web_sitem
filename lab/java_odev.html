@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hafta 9 Lab Görevi</title>
+
+    <style>
+        .toggle-img {
+            width: 150px;
+            margin: 10px;
+            border: 2px solid #333;
+            display: none;
+        }
+
+        #random_image {
+            width: 300px;
+            display: block;
+            margin: 20px auto;
+            border: 5px solid red;
+        }
+
+        .button-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .button-container button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="initializePage()">
+
+    <h1 id="ana_metin" style="text-align: center;">Hayvanlar</h1>
+    <p style="text-align: center;">Bu sayfa her yenilendiğinde arka plan rengi ve rastgele resim değişecektir.</p>
+
+    <img id="random_image" alt="Rastgele Seçilen Resim">
+
+    <hr>
+
+    <div class="button-container">
+        <button onclick="toggleImage('img1')">Panda Göster/Gizle</button>
+        <button onclick="toggleImage('img2')">KoalaGöster/Gizle</button>
+        <button onclick="toggleImage('img3')">Penguen Göster/Gizle</button>
+    </div>
+
+    <div style="text-align: center;">
+        <img id="img1" class="toggle-img" src="img/panda.jpeg" alt="Panda">
+        <img id="img2" class="toggle-img" src="img/koala.jpeg" alt="Koala">
+        <img id="img3" class="toggle-img" src="img/penguen.jpeg" alt="Penguen">
+    </div>
+
+
+<script>
+    const imagePaths = [
+        "img/image1.jpeg", "img/image2.jpeg", "img/image3.jpeg", "img/image4.jpeg",
+
+    ];
+
+    const backgroundColors = [
+        "#FFC3A0", "#F7D794", "#70A1FF", "#79E0EE", "#C7A0FF",
+        "#E76F51", "#2A9D8F", "#E9C46A", "#264653", "#A8DADC"
+    ];
+
+    function changeBackgroundColor() {
+        const randomIndex = Math.floor(Math.random() * backgroundColors.length);
+        document.body.style.backgroundColor = backgroundColors[randomIndex];
+    }
+
+    function selectRandomImage() {
+        const randomIndex = Math.floor(Math.random() * imagePaths.length);
+        document.getElementById("random_image").src = imagePaths[randomIndex];
+    }
+
+    function toggleImage(imageId) {
+        const img = document.getElementById(imageId);
+        img.style.display = img.style.display === "none" ? "block" : "none";
+    }
+
+    function initializePage() {
+        changeBackgroundColor();
+        selectRandomImage();
+    }
+</script>
+
+</body>
+</html>
