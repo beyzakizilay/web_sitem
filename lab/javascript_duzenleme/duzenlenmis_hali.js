@@ -17,7 +17,13 @@ const themes = [
 ];
 
 let bg = new Image();
+
+bg.onload = () => {
+    console.log("Arka plan YÜKLENDİ!");
+};
+
 bg.src = themes[0];
+
 
 let starImg = new Image();
 starImg.src = "resimler/star.jpeg";
