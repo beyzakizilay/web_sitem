@@ -11,31 +11,27 @@ let stars = 0;
 let dash = false;
 let themeIndex = 0;
 
+// GitHub'daki dosya adlarına birebir uyumlu
 const themes = [
-    "resimler/bg1.jpg",
-    "resimler/bg2.jpg"
+    "resimler/bg1.jpeg",
+    "resimler/bg2.jpeg"
 ];
 
 let bg = new Image();
-
-bg.onload = () => {
-    console.log("Arka plan YÜKLENDİ!");
-};
-
+bg.onload = () => console.log("Arka plan YÜKLENDİ!");
 bg.src = themes[0];
 
-
 let starImg = new Image();
-starImg.src = "resimler/star.png";
+starImg.src = "resimler/star.jpeg";
 
 let heartImg = new Image();
-heartImg.src = "resimler/heart.png";
+heartImg.src = "resimler/heart.jpeg";
 
 let enemyImg = new Image();
-enemyImg.src = "resimler/ufo.png";
+enemyImg.src = "resimler/ufo.jpeg";
 
 let mcIdle = new Image();
-mcIdle.src = "resimler/player.png";
+mcIdle.src = "resimler/player.jpeg";
 
 const player = {
     x: 50,
@@ -74,7 +70,7 @@ function draw() {
     ctx.drawImage(mcIdle, player.x, player.y, player.w, player.h);
     ctx.drawImage(enemyImg, enemy.x, enemy.y, enemy.w, enemy.h);
 
-    if (item.type == "star") {
+    if (item.type === "star") {
         ctx.drawImage(starImg, item.x, item.y, item.w, item.h);
     } else {
         ctx.drawImage(heartImg, item.x, item.y, item.w, item.h);
@@ -140,7 +136,7 @@ function checkCollision(a, b) {
 function gameOverScreen() {
     ctx.fillStyle = "black";
     ctx.globalAlpha = 0.7;
-    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1;
 
     ctx.fillStyle = "white";
@@ -148,13 +144,13 @@ function gameOverScreen() {
     ctx.fillText("GAME OVER", canvas.width / 2 - 120, canvas.height / 2);
 }
 
-const keys = { a:false, d:false };
+const keys = { a: false, d: false };
 
 window.addEventListener("keydown", e => {
     if (!start && (e.key === "t" || e.key === "T")) {
         start = true;
         loop();
-        setInterval(()=>point++,1000);
+        setInterval(() => point++, 1000);
     }
 
     if (e.key === "a") keys.a = true;
@@ -171,7 +167,7 @@ window.addEventListener("keydown", e => {
     }
 
     if (e.key === "k") {
-        themeIndex = (themeIndex+1) % themes.length;
+        themeIndex = (themeIndex + 1) % themes.length;
         bg.src = themes[themeIndex];
     }
 });
