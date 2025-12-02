@@ -12,8 +12,8 @@ let dash = false;
 let themeIndex = 0;
 
 const themes = [
-    "resimler/bg1.jpeg",
-    "resimler/bg2.jpeg"
+    "resimler/bg1.jpg",
+    "resimler/bg2.jpg"
 ];
 
 let bg = new Image();
@@ -26,16 +26,16 @@ bg.src = themes[0];
 
 
 let starImg = new Image();
-starImg.src = "resimler/star.jpeg";
+starImg.src = "resimler/star.png";
 
 let heartImg = new Image();
-heartImg.src = "resimler/heart.jpeg";
+heartImg.src = "resimler/heart.png";
 
 let enemyImg = new Image();
-enemyImg.src = "resimler/ufo.jpeg";
+enemyImg.src = "resimler/ufo.png";
 
 let mcIdle = new Image();
-mcIdle.src = "resimler/player.jpeg";
+mcIdle.src = "resimler/player.png";
 
 const player = {
     x: 50,
