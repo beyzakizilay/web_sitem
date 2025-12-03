@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Form1 - Üyelik İşlemleri</title>
+    <style>
+        body { font-family: Arial; background:#f3f3f3; padding:20px; }
+        .container { max-width: 500px; margin:auto; background:white; padding:20px; border-radius:10px; }
+        label { font-weight:bold; }
+        input, select, textarea {
+            width:100%; padding:8px; margin:8px 0; border:1px solid #ccc; border-radius:5px;
+        }
+        button { background:#007bff; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer; }
+        button:hover { background:#0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Üyelik Formu</h2>
+
+    <form>
+        <label>Ad:</label>
+        <input type="text" name="ad" required>
+
+        <label>Soyad:</label>
+        <input type="text" name="soyad" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Şifre:</label>
+        <input type="password" name="sifre" required>
+
+        <label>Doğum Tarihi:</label>
+        <input type="date" name="dogum">
+
+        <label>Cinsiyet:</label>
+        <select name="cinsiyet">
+            <option>Seçiniz</option>
+            <option>Kadın</option>
+            <option>Erkek</option>
+            <option>Diğer</option>
+        </select>
+
+        <label>Telefon:</label>
+        <input type="tel" name="telefon">
+
+        <label>Profil Fotoğrafı:</label>
+        <input type="file" name="foto">
+
+        <label>Hobileriniz:</label>
+        <input type="checkbox" name="hobiler" value="spor"> Spor
+        <input type="checkbox" name="hobiler" value="müzik"> Müzik
+        <input type="checkbox" name="hobiler" value="kitap"> Kitap Okuma
+
+        <label>Üyelik Türü:</label><br>
+        <input type="radio" name="tur" value="standart"> Standart
+        <input type="radio" name="tur" value="premium"> Premium
+        <br><br>
+
+        <label>Kendinizi Tanıtın:</label>
+        <textarea name="tanitim" rows="4"></textarea>
+
+        <button type="submit">Gönder</button>
+    </form>
+</div>
+
+</body>
+</html>

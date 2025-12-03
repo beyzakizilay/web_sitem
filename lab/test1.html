@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test1 - Web Programcılığı Sınavı</title>
+    <style>
+        body { font-family: Arial; background:#eef; padding:20px; }
+        .container { max-width: 700px; margin:auto; background:white; padding:20px; border-radius:8px; }
+        h2 { text-align:center; }
+        .soru { margin-bottom:20px; padding:10px; background:#f7f7f7; border-radius:6px; }
+        button { background:#28a745; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;}
+        button:hover { background:#1e7e34; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>WEB Programcılığı Testi</h2>
+
+    <form>
+
+        <div class="soru">
+            <p><b>1. HTML’in açılımı nedir?</b></p>
+            <input type="radio" name="s1"> Hyper Text Markup Language<br>
+            <input type="radio" name="s1"> High Text Machine Logic<br>
+            <input type="radio" name="s1"> Hyperlinks Text Management Level<br>
+        </div>
+
+        <div class="soru">
+            <p><b>2. Hangisi bir input türüdür?</b></p>
+            <select>
+                <option>input-box</option>
+                <option>placeholder</option>
+                <option>text</option>
+                <option>title</option>
+            </select>
+        </div>
+
+        <div class="soru">
+            <p><b>3. Aşağıdaki kod ne işe yarar?</b></p>
+            <code>&lt;input type="password"&gt;</code><br><br>
+            <input type="text" placeholder="Cevabınızı yazın">
+        </div>
+
+        <div class="soru">
+            <p><b>4. Kendinizi değerlendirin:</b></p>
+            <input type="range" min="0" max="10">
+        </div>
+
+        <div class="soru">
+            <p><b>5. Yorumunuzu yazın:</b></p>
+            <textarea rows="3"></textarea>
+        </div>
+
+        <button type="submit">Testi Bitir</button>
+
+    </form>
+</div>
+
+</body>
+</html>
