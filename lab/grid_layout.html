@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout Lab Ödevi</title>
+    <style>
+        .container {
+            display: grid;
+    
+            grid-template-areas: 
+                "B C D"
+                "A A A"
+                "E F ."
+                "G G G";
+            
+            gap: 10px; 
+            width: 600px; 
+            margin: 20px auto;
+            border: 2px solid #333;
+            padding: 10px;
+        }
+
+        .item {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        #item-a {
+            grid-area: A;
+            background-color: #FF5722; 
+        }
+        #item-b {
+            grid-area: B;
+        }
+        #item-c {
+            grid-area: C;
+        }
+        #item-d {
+            grid-area: D;
+        }
+        #item-e {
+            grid-area: E;
+        }
+        #item-f {
+            grid-area: F;
+        }
+        #item-g {
+            grid-area: G;
+            background-color: #2196F3; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="item" id="item-a">A</div>
+    <div class="item" id="item-b">B</div>
+    <div class="item" id="item-c">C</div>
+    <div class="item" id="item-d">D</div>
+    <div class="item" id="item-e">E</div>
+    <div class="item" id="item-f">F</div>
+    <div class="item" id="item-g">G</div>
+</div>
+
+</body>
+</html>
