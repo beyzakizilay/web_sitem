@@ -11,21 +11,21 @@ let start = false;
 
 // === Arkaplan Görselleri ===
 let gameBackground = new Image();
-gameBackground.src = "assets/images/gamebackground.png";
+gameBackground.src = "./images/gamebackground.png";
 
 let finalBackground = new Image();
-finalBackground.src = "assets/images/finalbackground.png";
+finalBackground.src = "./images/finalbackground.png";
 
 // === Oyuncu Görselleri ===
 let playerImage = new Image();
-playerImage.src = "assets/characters/idleMc.png";
+playerImage.src = "./assets/characters/idleMc.png";
 
 let deadImage = new Image();
-deadImage.src = "assets/characters/dead.png";
+deadImage.src = "./assets/characters/dead.png";
 
 // === Yıldız Görseli ===
 let starImage = new Image();
-starImage.src = "assets/images/star.png";
+starImage.src = "./images/star.png";
 
 // === Oyuncu ===
 let player = {
@@ -136,7 +136,7 @@ function spawnStar() {
         y: -20,
         width: 32,
         height: 32,
-        speed: 2,
+        speed: 2
     });
 }
 
