@@ -18,7 +18,7 @@ finalBackground.src = "assets/images/finalbackground.png";
 
 // === Oyuncu Görselleri ===
 let playerImage = new Image();
-playerImage.src = "assets/characters/idleMc.png";  // TEK RESİM
+playerImage.src = "assets/characters/idleMc.png";
 
 let deadImage = new Image();
 deadImage.src = "assets/characters/dead.png";
@@ -56,7 +56,6 @@ let keys = {};
 window.addEventListener("keydown", (e) => {
     let key = e.key;
 
-    // ENTER ile oyun başlat
     if (key === "Enter" && start === false) {
         start = true;
         stage = false;
@@ -150,7 +149,6 @@ function drawStars() {
             stars.splice(stars.indexOf(s), 1);
         }
 
-        // Çarpışma
         if (player.x < s.x + s.width &&
             player.x + player.width > s.x &&
             player.y < s.y + s.height &&
