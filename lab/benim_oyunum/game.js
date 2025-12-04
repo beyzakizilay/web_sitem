@@ -1,69 +1,57 @@
-// Canvas ayarları
+// CANVAS
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-// ---- RESİM YOLLARI TAM DÜZELTİLMİŞ ----
-const images = {
-    background: "images/gamebackground.png",
-    finalBackground: "images/finalbackground.png",
-    burger: "images/burger.png",
-    hourglass: "images/hourglass.png",
-    star: "images/star.png",
-
-    idle: "assets/characters/idleMc.png",
-    dead: "assets/characters/dead.png",
-    left: "assets/characters/mcLeft.png"   // BU DOSYA YOKSA HATA ALIRSIN
-};
-
-// Resimleri yükleme
-const loadedImages = {};
-
-function loadImages(callback) {
-    let total = Object.keys(images).length;
-    let loaded = 0;
-
-    for (let key in images) {
-        const img = new Image();
-        img.src = images[key];
-
-        img.onload = () => {
-            loadedImages[key] = img;
-            loaded++;
-
-            if (loaded === total) {
-                callback();
-            }
-        };
-
-        img.onerror = () => {
-            console.error("YÜKLENEMEDİ:", images[key]);
-        };
-    }
+// RESIM YÜKLEME FONKSIYONU
+function loadImage(src) {
+    const img = new Image();
+    img.src = src;
+    img.onerror = () => console.log("YÜKLENEMEDİ: " + src);
+    return img;
 }
 
-// Oyuncu
-let player = {
-    x: 100,
-    y: 350,
-    width: 80,
-    height: 80,
-    speed: 5
+/* === RESİM YOLLARININ TAMAMI DÜZELTİLDİ === */
+const images = {
+    background: loadImage("assets/images/gamebackground.png"),
+    finalBackground: loadImage("assets/images/finalbackground.png"),
+
+    star: loadImage("assets/images/star.png"),
+    burger: loadImage("assets/images/burger.png"),
+    hourglass: loadImage("assets/images/hourglass.png"),
+
+    idle: loadImage("assets/characters/idleMc.png"),
+    dead: loadImage("assets/characters/dead.png"),
+    left: loadImage("assets/characters/mcLeft.png"),
+    right: loadImage("assets/characters/mcRight.png")
 };
 
+// OYUN DEĞİŞKENLERİ
+let gameStarted = false;
+let gameOver = false;
+let score = 0;
+
+document.addEventListener("keydown", (e) => {
+    if (!gameStarted && e.key === "Enter") {
+        gameStarted = true;
+        gameLoop();
+    }
+});
+
+// OYUN ÇİZİM DÖNGÜSÜ
 function gameLoop() {
+    if (!gameStarted) return;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Arkaplan
-    ctx.drawImage(loadedImages.background, 0, 0, canvas.width, canvas.height);
-
-    // Oyuncu
-    ctx.drawImage(loadedImages.idle, player.x, player.y, player.width, player.height);
+    ctx.drawImage(images.background, 0, 0, canvas.width, canvas.height);
 
     requestAnimationFrame(gameLoop);
 }
 
-// Başlat
-loadImages(() => {
-    console.log("TÜM RESİMLER YÜKLENDİ");
-    gameLoop();
-});
+// İLK EKRAN
+function drawStartScreen() {
+    ctx.fillStyle = "white";
+    ctx.font = "24px Arial";
+    ctx.fillText("Oyuna başlamak için ENTER'a bas", 80, 250);
+}
+
+drawStartScreen();
