@@ -4,17 +4,42 @@
   <meta charset="utf-8" />
   <title>Counting Stars - Beyza</title>
   <style>
-    body { background:#222; color:#fff; font-family:Arial, sans-serif; display:flex; flex-direction:column; align-items:center; padding:20px; }
-    canvas { display:block; margin:20px 0; }
-    #bilgi { padding:8px 12px; background:#367e0a; border:none; color:white; cursor:pointer; border-radius:6px; }
+    body {
+      background:#222;
+      color:#fff;
+      font-family:Arial, sans-serif;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:20px;
+    }
+    canvas {
+      margin-top:20px;
+      border: 2px solid white;
+      background: black;
+    }
+    #bilgi {
+      padding:8px 12px;
+      background:#367e0a;
+      border:none;
+      color:white;
+      cursor:pointer;
+      border-radius:6px;
+    }
   </style>
 </head>
 <body>
   <h1>Counting Stars - Beyza</h1>
   <button id="bilgi" onclick="bilgiVer()">Bilgi</button>
-  <canvas id="myCanvas"></canvas>
 
-  <!-- oyun kodunu buraya dahil et -->
+  <canvas id="myCanvas" width="500" height="500"></canvas>
+
+  <script>
+    function bilgiVer(){
+      alert("Bu oyun Beyza tarafından düzenlenmiştir. Yıldızları topla, düşme!");
+    }
+  </script>
+
   <script src="./game.js"></script>
 </body>
 </html>
