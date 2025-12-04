@@ -36,7 +36,7 @@ playerDead.src = "./assets/characters/dead.png";
 
 // === Yıldız Görseli ===
 let starImage = new Image();
-starImage.src = "./assets/images/star.webp";
+starImage.src = "./assets/images/star.png";
 
 // === Klavye Kontrolü ===
 document.addEventListener("keydown", function (e) {
