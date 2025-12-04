@@ -1,241 +1,120 @@
-// === Canvas ve Başlangıç Ayarları ===
-let canvas = document.getElementById("myCanvas");
-let ctx = canvas.getContext("2d");
+// === Canvas Ayarları ===
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
 
-canvas.width = 500;
+canvas.width = 800;
 canvas.height = 500;
 
-let frame = 0;
+// === Değişkenler ===
+let gameOver = false;
 let point = 0;
 let rl = 0;
 let start = false;
+let playerX = 200;
+let playerY = 380;
+let fallingStarY = -20;
 
-// === Arkaplan Görselleri ===
+// === Arka Plan Görselleri ===
 let gameBackground = new Image();
-gameBackground.src = "./images/gamebackground.png";
+gameBackground.src = "./assets/images/gamebackground.png";
 
 let finalBackground = new Image();
-finalBackground.src = "./images/finalbackground.png";
+finalBackground.src = "./assets/images/finalbackground.png";
 
 // === Oyuncu Görselleri ===
 let playerImage = new Image();
-playerImage.src = "./characters/idleMc.png";
-
-let deadImage = new Image();
-deadImage.src = "./characters/dead.png";
+playerImage.src = "./assets/characters/idleMc.png";
 
 let playerImageRight = new Image();
-playerImageRight.src = "./characters/mcRight.png";
+playerImageRight.src = "./assets/characters/mcRight.png";
 
 let playerImageLeft = new Image();
-playerImageLeft.src = "./characters/mcLeft.png";
+playerImageLeft.src = "./assets/characters/mcLeft.png";
+
+let deadImage = new Image();
+deadImage.src = "./assets/characters/dead.png";
 
 // === Yıldız Görseli ===
 let starImage = new Image();
-starImage.src = "./images/star.png";
+starImage.src = "./assets/images/star.webp";
 
-// === Oyuncu Nesnesi ===
-let player = {
-    x: 200,
-    y: 200,
-    width: 57,
-    height: 86,
-    speed: 3,
-    Xvelocity: 0,
-    Yvelocity: 0,
-    jumpForce: -15,
-    grounded: false,
-    jumpCount: 0,
-    maxJump: 2,
-};
-
-// === Gravite ===
-let gravity = 1;
-let milye = 1;
-let stage = false;
-
-function jump(){
-    if(player.jumpCount < player.maxJump){
-        player.Yvelocity = player.jumpForce;
-        player.jumpCount++;
-    }
-}
-
-// === Klavye Kontrolleri ===
-let keys = {};
-
-window.addEventListener("keydown", (e) => {
-    let key = e.key;
-
-    // --- ENTER İLE OYUNU BAŞLAT ---
-    if (key === "Enter" && start === false) {
+// === Klavye Kontrolü ===
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
         start = true;
-        stage = false;
-        point = 0;
-        frame = 0;
-        player.x = 200;
-        player.y = 200;
-        player.Xvelocity = 0;
-        player.Yvelocity = 0;
     }
-
-    keys[key] = true;
-
-    if (key === " " || key === "w" || key === "W") {
-        jump();
+    if (e.key === "ArrowRight") {
+        rl = 1;
+    }
+    if (e.key === "ArrowLeft") {
+        rl = -1;
     }
 });
 
-window.addEventListener("keyup", (e) => {
-    keys[e.key] = false;
+document.addEventListener("keyup", function (e) {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        rl = 0;
+    }
 });
-
-// === Hareket ===
-function MovementController(){
-    if(keys["ArrowLeft"] || keys["a"] || keys["A"]){
-        player.Xvelocity = -player.speed;
-        playerImage.src = "./characters/mcLeft.png";
-    }
-    else if(keys["ArrowRight"] || keys["d"] || keys["D"]){
-        player.Xvelocity = player.speed;
-        playerImage.src = "./characters/mcRight.png";
-    }
-    else {
-        player.Xvelocity = 0;
-        playerImage.src = "./characters/idleMc.png";
-    }
-}
-
-// === Platformlar ===
-let platforms = [
-    {x:0, y:400, width:500, height:20},
-    {x:120, y:300, width:200, height:20},
-    {x:50, y:200, width:150, height:20},
-    {x:250, y:100, width:200, height:20},
-];
-
-// === Platform Çizimi ===
-function drawPlatforms(){
-    ctx.fillStyle="#333";
-    for(let p of platforms){
-        ctx.fillRect(p.x, p.y, p.width, p.height);
-    }
-}
-
-// === Çarpışma ===
-function platformCollision(){
-    player.grounded = false;
-
-    for(let p of platforms){
-        if(player.x < p.x + p.width &&
-           player.x + player.width > p.x &&
-           player.y < p.y + p.height &&
-           player.y + player.height > p.y){
-
-            if(player.Yvelocity > 0){
-                player.y = p.y - player.height;
-                player.Yvelocity = 0;
-                player.grounded = true;
-                player.jumpCount = 0;
-            }
-        }
-    }
-}
-
-// === Yıldızlar ===
-let stars = [];
-
-function spawnStar(){
-    stars.push({
-        x: Math.random() * 450,
-        y: -20,
-        width: 32,
-        height: 32,
-        speed: 2,
-    });
-}
-
-function drawStars(){
-    for(let s of stars){
-        ctx.drawImage(starImage, s.x, s.y, s.width, s.height);
-        s.y += s.speed;
-
-        if(s.y > 500){
-            stars.splice(stars.indexOf(s), 1);
-        }
-
-        // Çarpışma
-        if(player.x < s.x + s.width &&
-           player.x + player.width > s.x &&
-           player.y < s.y + s.height &&
-           player.y + player.height > s.y){
-
-            stars.splice(stars.indexOf(s), 1);
-            point++;
-        }
-    }
-}
 
 // === Oyun Döngüsü ===
-function gameLoop(){
-    ctx.clearRect(0,0,500,500);
+function gameLoop() {
 
-    // Başlangıç ekranı (Enter bekleme)
-    if(!start){
-        ctx.fillStyle = "black";
-        ctx.fillRect(0,0,500,500);
-
-        ctx.fillStyle="white";
-        ctx.font="28px Arial";
-        ctx.fillText("ENTER'a basarak başla!", 100, 250);
-        return requestAnimationFrame(gameLoop);
+    // Oyun başlamadıysa sadece "Enter'a bas" ekranı
+    if (!start) {
+        ctx.fillStyle = "white";
+        ctx.font = "30px Arial";
+        ctx.fillText("Başlamak için ENTER'a bas", 220, 250);
+        ctx.drawImage(playerImage, playerX, playerY, 70, 100);
+        requestAnimationFrame(gameLoop);
+        return;
     }
 
-    ctx.drawImage(gameBackground, 0, 0, 500, 500);
+    // Arka plan
+    ctx.drawImage(gameBackground, 0, 0, canvas.width, canvas.height);
 
-    MovementController();
+    // Oyuncu hareketi
+    playerX += rl * 5;
 
-    player.Yvelocity += gravity * milye;
-    player.x += player.Xvelocity;
-    player.y += player.Yvelocity;
+    if (playerX < 0) playerX = 0;
+    if (playerX > 730) playerX = 730;
 
-    if(player.y > 480){
-        stage = true;
+    // Yıldız düşme hareketi
+    fallingStarY += 5;
+    if (fallingStarY > 500) {
+        fallingStarY = -20;
+        fallingStarX = Math.random() * 750;
     }
 
-    platformCollision();
+    // Çizimler
+    ctx.drawImage(starImage, fallingStarX, fallingStarY, 40, 40);
 
-    // Karakter
-    ctx.drawImage(playerImage, player.x, player.y, player.width, player.height);
+    if (!gameOver) {
+        if (rl === 1) ctx.drawImage(playerImageRight, playerX, playerY, 70, 100);
+        else if (rl === -1) ctx.drawImage(playerImageLeft, playerX, playerY, 70, 100);
+        else ctx.drawImage(playerImage, playerX, playerY, 70, 100);
+    }
 
-    drawPlatforms();
-    drawStars();
-
-    frame++;
-    if(frame % 120 === 0){
-        spawnStar();
+    // Çarpışma kontrolü
+    if (
+        fallingStarY > 360 &&
+        fallingStarX > playerX - 20 &&
+        fallingStarX < playerX + 50
+    ) {
+        point++;
+        fallingStarY = -20;
+        fallingStarX = Math.random() * 750;
     }
 
     // Puan yazısı
     ctx.fillStyle = "white";
-    ctx.font = "22px Georgia";
-    ctx.fillText("Puan: " + point, 20, 30);
-
-    // Game Over ekranı
-    if(stage){
-        ctx.drawImage(finalBackground, 0, 0, 500, 500);
-
-        ctx.fillStyle="white";
-        ctx.font="32px Arial";
-        ctx.fillText("Oyun Bitti!", 160, 230);
-
-        ctx.font="24px Arial";
-        ctx.fillText("Toplam Puan: " + point, 160, 270);
-
-        return;
-    }
+    ctx.font = "25px Arial";
+    ctx.fillText("Puan: " + point, 20, 40);
 
     requestAnimationFrame(gameLoop);
 }
 
+let fallingStarX = Math.random() * 750;
+
+// Oyun başlat
 gameLoop();
