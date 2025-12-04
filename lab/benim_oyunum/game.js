@@ -208,4 +208,34 @@ function gameLoop(){
     // Karakter
     ctx.drawImage(playerImage, player.x, player.y, player.width, player.height);
 
-    drawPlatfo
+    drawPlatforms();
+    drawStars();
+
+    frame++;
+    if(frame % 120 === 0){
+        spawnStar();
+    }
+
+    // Puan yazısı
+    ctx.fillStyle = "white";
+    ctx.font = "22px Georgia";
+    ctx.fillText("Puan: " + point, 20, 30);
+
+    // Game Over ekranı
+    if(stage){
+        ctx.drawImage(finalBackground, 0, 0, 500, 500);
+
+        ctx.fillStyle="white";
+        ctx.font="32px Arial";
+        ctx.fillText("Oyun Bitti!", 160, 230);
+
+        ctx.font="24px Arial";
+        ctx.fillText("Toplam Puan: " + point, 160, 270);
+
+        return;
+    }
+
+    requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
