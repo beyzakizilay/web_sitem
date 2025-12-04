@@ -11,21 +11,21 @@ let start = false;
 
 // === Arkaplan Görselleri ===
 let gameBackground = new Image();
-gameBackground.src = "./images/gamebackground.png";
+gameBackground.src = "gamebackground.png";
 
 let finalBackground = new Image();
-finalBackground.src = "./images/finalbackground.png";
+finalBackground.src = "finalbackground.png";
 
-// === Oyuncu Görselleri ===
+// === Oyuncu Görseli ===
 let playerImage = new Image();
-playerImage.src = "./assets/characters/idleMc.png";
+playerImage.src = "idleMc.png";
 
 let deadImage = new Image();
-deadImage.src = "./assets/characters/dead.png";
+deadImage.src = "dead.png";
 
 // === Yıldız Görseli ===
 let starImage = new Image();
-starImage.src = "./images/star.png";
+starImage.src = "star.png";
 
 // === Oyuncu ===
 let player = {
@@ -82,11 +82,9 @@ window.addEventListener("keyup", (e) => {
 function MovementController() {
     if (keys["ArrowLeft"] || keys["a"] || keys["A"]) {
         player.Xvelocity = -player.speed;
-    }
-    else if (keys["ArrowRight"] || keys["d"] || keys["D"]) {
+    } else if (keys["ArrowRight"] || keys["d"] || keys["D"]) {
         player.Xvelocity = player.speed;
-    }
-    else {
+    } else {
         player.Xvelocity = 0;
     }
 }
@@ -99,7 +97,6 @@ let platforms = [
     { x: 250, y: 100, width: 200, height: 20 },
 ];
 
-// === Platform Çiz ===
 function drawPlatforms() {
     ctx.fillStyle = "#333";
     for (let p of platforms) {
@@ -107,7 +104,6 @@ function drawPlatforms() {
     }
 }
 
-// === Çarpışma ===
 function platformCollision() {
     player.grounded = false;
 
@@ -136,7 +132,7 @@ function spawnStar() {
         y: -20,
         width: 32,
         height: 32,
-        speed: 2
+        speed: 2,
     });
 }
 
@@ -167,7 +163,6 @@ function gameLoop() {
     if (!start) {
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, 500, 500);
-
         ctx.fillStyle = "white";
         ctx.font = "28px Arial";
         ctx.fillText("ENTER'a basarak başla!", 100, 250);

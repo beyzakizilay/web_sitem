@@ -1,34 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <title>Counting Stars - Beyza</title>
-
-  <style>
-    body {
-      background:#222;
-      color:#fff;
-      font-family:Arial, sans-serif;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:20px;
-    }
-    canvas {
-      margin-top:20px;
-      border: 2px solid white;
-      background: black;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benim Oyunum</title>
+    <style>
+        body {
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        canvas {
+            background: #000;
+            border: 2px solid #fff;
+        }
+    </style>
 </head>
 <body>
 
-  <h1>Counting Stars - Beyza</h1>
+<canvas id="gameCanvas"></canvas>
 
-  <!-- Canvas ID kesinlikle gameCanvas olmalı -->
-  <canvas id="gameCanvas" width="500" height="500"></canvas>
-
-  <script src="game.js"></script>
+<script src="game.js"></script>
 
 </body>
 </html>
