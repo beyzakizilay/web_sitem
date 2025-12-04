@@ -8,25 +8,26 @@ let gameOver = false;
 
 // Load images
 const bg = new Image();
-bg.src = "assests/images/gamebackground.png";
+bg.src = "assets/images/gamebackground.png";
 
 const finalBg = new Image();
-finalBg.src = "assests/images/finalbackground.png";
+finalBg.src = "assets/images/finalbackground.png";
 
 const starImg = new Image();
-starImg.src = "assests/images/star.webp";
+starImg.src = "assets/images/star.webp";
 
+// Character images
 const idleMc = new Image();
-idleMc.src = "assests/characters/idleMc.png";
+idleMc.src = "assets/characters/idleMc.png";
 
 const mcLeft = new Image();
-mcLeft.src = "assests/characters/mcLeft.png";
+mcLeft.src = "assets/characters/mcLeft.png";
 
 const mcRight = new Image();
-mcRight.src = "assests/characters/mcRight.png";
+mcRight.src = "assets/characters/mcRight.png";
 
 const mcDead = new Image();
-mcDead.src = "assests/characters/dead.png";
+mcDead.src = "assets/characters/dead.png";
 
 // Player
 let player = {
@@ -57,13 +58,15 @@ setInterval(createStar, 1500);
 let moveLeft = false;
 let moveRight = false;
 
+// Key events
 document.addEventListener("keydown", (e) => {
+
     if (e.key === "Enter") {
         if (!gameStarted) {
             gameStarted = true;
-        } else if (gameOver) {
-            location.reload();
+            return;
         }
+        if (gameOver) location.reload();
     }
 
     if (e.key === "ArrowLeft") {
@@ -80,17 +83,15 @@ document.addEventListener("keyup", (e) => {
     if (e.key === "ArrowLeft") moveLeft = false;
     if (e.key === "ArrowRight") moveRight = false;
 
-    if (!moveLeft && !moveRight) {
-        player.img = idleMc;
-    }
+    if (!moveLeft && !moveRight) player.img = idleMc;
 });
 
-// Draw player
+// Draw Player
 function drawPlayer() {
     ctx.drawImage(player.img, player.x, player.y, player.width, player.height);
 }
 
-// Draw stars
+// Draw Stars
 function drawStars() {
     stars.forEach((s, index) => {
         s.y += s.speed;
@@ -118,29 +119,27 @@ function drawStars() {
 function update() {
     if (!gameStarted) {
         ctx.fillStyle = "white";
-        ctx.font = "26px Arial";
-        ctx.fillText("Oyuna başlamak için ENTER'a bas", 50, 250);
+        ctx.font = "24px Arial";
+        ctx.fillText("Oyuna başlamak için ENTER'a bas", 80, 250);
         return;
     }
 
     if (gameOver) {
         ctx.drawImage(finalBg, 0, 0, 500, 500);
         ctx.fillStyle = "white";
-        ctx.font = "30px Arial";
-        ctx.fillText("Oyun Bitti!", 180, 100);
-        ctx.fillText("Skor: " + score, 200, 150);
-        ctx.fillText("Yeniden başlamak için ENTER", 60, 400);
+        ctx.font = "32px Arial";
+        ctx.fillText("Oyun Bitti!", 180, 140);
+        ctx.fillText("Skor: " + score, 200, 200);
+        ctx.font = "24px Arial";
+        ctx.fillText("Tekrar oynamak için: ENTER", 80, 420);
         return;
     }
 
-    // Background
     ctx.drawImage(bg, 0, 0, 500, 500);
 
-    // Movement
     if (moveLeft && player.x > 0) player.x -= player.speed;
     if (moveRight && player.x < 420) player.x += player.speed;
 
-    // Draw elements
     drawPlayer();
     drawStars();
 
