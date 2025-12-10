@@ -1,154 +1,178 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <title>Klasik Romanlar</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <style>
-    /* Stil kodları aynı kalıyor */
-    .card {
-      margin-bottom: 20px;
-    }
-    .card-img-top {
-      height: 200px;
-      object-fit: cover;
-    }
-    .card-body p {
-        font-size: 0.85rem;
-        margin-bottom: 0.5rem;
-    }
-    .card-footer {
-        font-size: 0.8rem;
-        padding: 0.5rem 1.25rem;
-    }
-  </style>
+  <meta charset="utf-8">
+  <title>Klasik Romanlar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .card {
+      margin-bottom: 20px;
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-body p {
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+    .card-footer {
+      font-size: 0.8rem;
+      padding: 0.5rem 1.25rem;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container-fluid"> 
-  <h2 class="text-center display-4 my-4">Klasik Romanlar 📚</h2> 
-  
-      <div class="row no-gutters"> 
+<div class="container-fluid">
+  <h2 class="text-center display-4 my-4">Klasik Romanlar 📚</h2>
 
-                <div class="card col-12 col-sm-2"> 
-      <div class="card-header bg-primary text-white">Sefiller</div>
-      <img src="img/sefiller.jpeg" class="card-img-top" alt="Sefiller Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Victor Hugo'nun adalet, yoksulluk ve aşk temalarını işlediği dev eseri.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: V. Hugo</div> 
-    </div>
+  <div class="row no-gutters">
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-success text-white">Suç ve Ceza</div> 
-      <img src="img/sucveceza.jpeg" class="card-img-top" alt="Suç ve Ceza Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Raskolnikov'un ahlaki çıkmazlarını ve vicdan azabını konu alan derin bir psikolojik roman.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: Dostoevski</div>
-    </div>
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-primary text-white">Sefiller</div>
+        <img src="img/sefiller.jpeg" class="card-img-top" alt="Sefiller Kitap Kapağı">
+        <div class="card-body">
+          <p>Victor Hugo'nun adalet, yoksulluk ve aşk temalarını işlediği dev eseri.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: V. Hugo</div>
+      </div>
+    </div>
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-warning text-dark">Gurur ve Önyargı</div>
-      <img src="img/gururveonyargi.jpeg" class="card-img-top" alt="Gurur ve Önyargı Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Elizabeth Bennet ve Bay Darcy'nin gurur ve toplumsal sınıflarla örülü aşk hikayesi.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: J. Austen</div>
-    </div>
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-success text-white">Suç ve Ceza</div>
+        <img src="img/sucveceza.jpeg" class="card-img-top" alt="Suç ve Ceza Kitap Kapağı">
+        <div class="card-body">
+          <p>Raskolnikov'un ahlaki çıkmazlarını konu alan psikolojik roman.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: Dostoyevski</div>
+      </div>
+    </div>
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-danger text-white">Büyük Umutlar</div> 
-      <img src="img/buyukumutlar.jpeg" class="card-img-top" alt="Büyük Umutlar Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Pip'in genç yaşta edindiği büyük beklentiler ve bunların sonuçları.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: C. Dickens</div>
-    </div>
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">Gurur ve Önyargı</div>
+        <img src="img/gururveonyargi.jpeg" class="card-img-top" alt="Gurur ve Önyargı">
+        <div class="card-body">
+          <p>Elizabeth Bennet ve Bay Darcy'nin gururla örülü aşk hikayesi.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: J. Austen</div>
+      </div>
+    </div>
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-secondary text-white">Yüzüklerin Efendisi</div> 
-      <img src="img/yuzuklerinefendisi.jpeg" class="card-img-top" alt="Yüzüklerin Efendisi Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Frodo Baggins'in Tek Yüzük'ü yok etme yolculuğu ve Orta Dünya'nın kaderi.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: J.R.R. Tolkien</div>
-    </div>
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-danger text-white">Büyük Umutlar</div>
+        <img src="img/buyukumutlar.jpeg" class="card-img-top" alt="Büyük Umutlar">
+        <div class="card-body">
+          <p>Pip'in genç yaşta edindiği büyük beklentilerin sonuçları.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: C. Dickens</div>
+      </div>
+    </div>
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-info text-white">Dönüşüm</div> 
-      <img src="img/donusum.jpeg" class="card-img-top" alt="Dönüşüm Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Gregor Samsa'nın bir böceğe dönüşmesini ve bunun ailesi üzerindeki etkilerini anlatan absürt bir eser.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: F. Kafka</div>
-    </div>
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-secondary text-white">Yüzüklerin Efendisi</div>
+        <img src="img/yuzuklerinefendisi.jpeg" class="card-img-top" alt="Yüzüklerin Efendisi">
+        <div class="card-body">
+          <p>Frodo'nun Tek Yüzük'ü yok etmek için çıktığı epik yolculuk.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: Tolkien</div>
+      </div>
+    </div>
 
-  </div>
-  
-    <div class="row no-gutters">
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-info text-white">Dönüşüm</div>
+        <img src="img/donusum.jpeg" class="card-img-top" alt="Dönüşüm">
+        <div class="card-body">
+          <p>Gregor Samsa'nın bir böceğe dönüşmesi ve ailesinin tepkisi.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: Kafka</div>
+      </div>
+    </div>
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-dark text-white">Uğultulu Tepeler</div> 
-      <img src="img/ugultulutepeler.jpeg" class="card-img-top" alt="Uğultulu Tepeler Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Heathcliff ve Catherine'in yıkıcı, tutkulu ve karanlık aşkının hikayesi.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: E. Brontë</div>
-    </div>
+  </div>
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-primary text-white">Don Kişot</div> 
-      <img src="img/donkisot.jpeg" class="card-img-top" alt="Don Kişot Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Şövalyelik romanlarıyla aklını yitiren Don Kişot'un maceraları.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: M. de Cervantes</div>
-    </div>
+  <div class="row no-gutters">
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-success text-white">Anna Karenina</div> 
-      <img src="img/annakarenina.jpeg" class="card-img-top" alt="Anna Karenina Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Evli bir kadın olan Anna'nın Kont Vronski ile yaşadığı tutkulu ve trajik aşk.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: L. Tolstoy</div>
-    </div>
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-dark text-white">Uğultulu Tepeler</div>
+        <img src="img/ugultulutepeler.jpeg" class="card-img-top" alt="Uğultulu Tepeler">
+        <div class="card-body">
+          <p>Heathcliff ve Catherine’in tutkulu ve karanlık aşkı.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: E. Brontë</div>
+      </div>
+    </div>
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-warning text-dark">Gizli Bahçe</div>
-      <img src="img/gizlibahce.jpeg" class="card-img-top" alt="Gizli Bahçe Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Mary Lennox'un İngiliz kırsalında keşfettiği gizemli bahçe ve kendini iyileştirme hikayesi.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: F.H. Burnett</div>
-    </div>
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-primary text-white">Don Kişot</div>
+        <img src="img/donkisot.jpeg" class="card-img-top" alt="Don Kişot">
+        <div class="card-body">
+          <p>Don Kişot’un şövalyelik maceraları.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: Cervantes</div>
+      </div>
+    </div>
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-danger text-white">Küçük Prens</div> 
-      <img src="img/kucukprens.jpeg" class="card-img-top" alt="Küçük Prens Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Bir pilotun çölde karşılaştığı Küçük Prens aracılığıyla dostluk ve hayatın anlamını keşfedişi.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: A. de Saint-Exupéry</div>
-    </div>
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-success text-white">Anna Karenina</div>
+        <img src="img/annakarenina.jpeg" class="card-img-top" alt="Anna Karenina">
+        <div class="card-body">
+          <p>Anna'nın Kont Vronski ile yaşadığı trajik aşk.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: Tolstoy</div>
+      </div>
+    </div>
 
-        <div class="card col-12 col-sm-2">
-      <div class="card-header bg-secondary text-white">Muhteşem Gatsby</div> 
-      <img src="img/muhtesemgatsby.jpeg" class="card-img-top" alt="Muhteşem Gatsby Kitap Kapağı">
-      <div class="card-body">
-        <p class="card-text">Jay Gatsby'nin lüks ve gizemli hayatı ile kayıp bir aşkı geri kazanma çabası.</p>
-      </div>
-      <div class="card-footer text-muted">Yazar: F.S. Fitzgerald</div>
-    </div>
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">Gizli Bahçe</div>
+        <img src="img/gizlibahce.jpeg" class="card-img-top" alt="Gizli Bahçe">
+        <div class="card-body">
+          <p>Mary Lennox’un keşfettiği gizemli bahçe.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: Burnett</div>
+      </div>
+    </div>
 
-  </div>
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-danger text-white">Küçük Prens</div>
+        <img src="img/kucukprens.jpeg" class="card-img-top" alt="Küçük Prens">
+        <div class="card-body">
+          <p>Küçük Prens ile dostluk ve hayatı keşfediş.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: Saint-Exupéry</div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-2">
+      <div class="card">
+        <div class="card-header bg-secondary text-white">Muhteşem Gatsby</div>
+        <img src="img/muhtesemgatsby.jpeg" class="card-img-top" alt="Muhteşem Gatsby">
+        <div class="card-body">
+          <p>Gatsby'nin gizemli ve lüks yaşamı.</p>
+        </div>
+        <div class="card-footer text-muted">Yazar: Fitzgerald</div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 </body>
