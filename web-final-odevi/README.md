@@ -19,6 +19,7 @@ Bu proje React kullanılarak geliştirilmiş dinamik bir Hava Durumu Uygulaması
 5. Klasördeki `build` klasörü üzerinden de projenin çıktısına ulaşılabilir.
 
 # Ekran Görüntüsü
+
 Uygulamanın arayüzüne ve özelliklerine dair görseller aşağıdadır
 
 <img height="300" src="../lab/img/hava_durumu1.jpeg">
