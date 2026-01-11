@@ -6,16 +6,14 @@ function App() {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Senin aldığın aktif API anahtarı
   const API_KEY = '4a36219a'; 
 
   const findMovie = async (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (!searchTerm) return;
     
     setLoading(true);
     try {
-      // Film araması yapıyoruz
       const response = await fetch(
         `https://www.omdbapi.com/?t=${searchTerm}&apikey=${API_KEY}`
       );
@@ -24,7 +22,7 @@ function App() {
       if (data.Response === "True") {
         setMovie(data);
       } else {
-        alert("Film bulunamadı! Lütfen İngilizce adını yazmayı deneyin (örn: Inception).");
+        alert("Film bulunamadı! Lütfen İngilizce adını yazmayı deneyin.");
       }
     } catch (error) {
       console.error("Hata:", error);
@@ -35,22 +33,32 @@ function App() {
   return (
     <div className="movie-app">
       <div className="search-container">
-        <h1>Sinema Rehberi</h1>
-        <p className="subtitle">Milyonlarca film ve dizi elinin altında</p>
+        <div className="logo-area">
+          <h1>SİNEMA REHBERİ</h1>
+        </div>
+        <div className="typewriter-container">
+          <p className="subtitle">Milyonlarca film ve dizi elinin altında...</p>
+        </div>
+        
         <form onSubmit={findMovie} className="search-form">
           <input 
             type="text" 
-            placeholder="Film adı yazın..."
+            placeholder="Film adı yazın (örn: Inception)..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button type="submit">Ara</button>
+          <button type="submit" className="glow-button">KEŞFET</button>
         </form>
       </div>
 
-      {loading && <div className="loader">Sinema makinesi dönüyor...</div>}
+      {loading && (
+        <div className="loader-container">
+          <div className="loader"></div>
+          <p className="loading-text">Yükleniyor...</p>
+        </div>
+      )}
 
-      {movie && (
+      {movie && !loading && (
         <div className="movie-card">
           <div className="movie-poster">
             <img 
@@ -73,7 +81,10 @@ function App() {
           </div>
         </div>
       )}
-      <footer className="footer">Beyza Kızılay | Web Final Ödevi 2026</footer>
+      
+      <footer className="footer">
+        <p>Hazırlayan: Beyza Kızılay | Web Tasarım Final Projesi © 2026</p>
+      </footer>
     </div>
   );
 }

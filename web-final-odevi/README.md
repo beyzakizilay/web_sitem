@@ -1,29 +1,25 @@
-# Final Ödevi
+# Sinema Rehberi (Movie Finder)
 
-Bu proje React kullanılarak geliştirilmiş dinamik bir Hava Durumu Uygulamasıdır. Kullanıcıdan alınan şehir ismine göre OpenWeather API üzerinden verileri anlık olarak çeker.
+Bu proje, React kullanılarak geliştirilmiş, gerçek zamanlı veri çeken bir film ve dizi arama motorudur. Kullanıcılar istedikleri yapımın adını yazarak afiş, IMDB puanı, özet ve oyuncu kadrosu gibi bilgilere anında ulaşabilirler.
 
-##  Proje Özellikleri
-- **API Kullanımı:** OpenWeatherMap API kullanılarak gerçek zamanlı veri çekilmiştir.
-- **Dinamik Tasarım:** Hava durumuna göre (Güneşli, Bulutlu, Yağmurlu, Karlı) arka plan rengi ve ikonlar otomatik değişir.
-- **Bileşen Yapısı:** Proje; Header, Content ve Footer olmak üzere 3 ana bileşenden oluşur.
-- **Kullanıcı Deneyimi:** Hatalı şehir girişlerinde uyarı mesajı ve veri yüklenirken "Yükleniyor..." bildirimi eklenmiştir.
+## Özellikler
 
-## Kullanılan API
-- 3adf9c89d798a8f7847571d266ede518 (https://openweathermap.org/)
+- **Canlı Veri:** OMDb API aracılığıyla milyonlarca film verisine erişim.
+- **Dinamik Arama:** Kullanıcı girdisine göre anlık sonuç getirme.
+- **Modern Arayüz:** Netflix tarzı karanlık tema (Dark Mode) ve responsive (mobil uyumlu) tasarım.
+- **Hızlı Yükleme:** Optimize edilmiş API sorguları ve görsel yönetimi.
 
-## Nasıl Çalıştırılır?
-1. Bu klasörü bilgisayarınıza indirin.
-2. Terminali klasör içinde açın.
-3. `npm install` komutu ile kütüphaneleri kurun.
-4. `npm start` komutu ile uygulamayı tarayıcıda görüntüleyin.
-5. Klasördeki `build` klasörü üzerinden de projenin çıktısına ulaşılabilir.
+## Kullanılan Teknolojiler
 
-# Ekran Görüntüsü
+- **Frontend:** React.js
+- **Styling:** CSS3 (Flexbox & Animations)
+- **API:** OMDb (Open Movie Database) API
+- **Sürüm Kontrol:** Git & GitHub
 
-Uygulamanın arayüzüne ve özelliklerine dair görseller aşağıdadır
+## Ekran Görüntüleri
 
-<img height="300" src="../lab/img/hava_durumu1.jpeg">
-<img height="300" src="../lab/img/hava_durumu2.jpeg">
+<p align="center">
+  <img src="./img/anasayfa.png" width="45%" />
+  <img src="./img/detay.png" width="45%" />
+</p>
 
----
-**Hazırlayan:** Beyza Kızılay 
