@@ -3,37 +3,35 @@ import './App.css';
 
 function App() {
   const [data, setData] = useState(null);
-  // Varsayılan olarak bugünün tarihini alıyoruz
-  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+  // Başlangıçta kesin çalışan bir tarih veriyoruz (1 Ocak 2025)
+  const [date, setDate] = useState("2025-01-01"); 
   const [loading, setLoading] = useState(false);
 
-  // Senin aldığın API Anahtarı
+  // Senin API anahtarın
   const API_KEY = 'sce8FYEwgxpXdIVBDoJ8S3fqROPcJcTMUwi7vcFo'; 
 
   const fetchSpaceData = async () => {
     setLoading(true);
     try {
-      const response = await fetch(
-        `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`
-      );
+      // Önce senin anahtarınla deniyoruz
+      let url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`;
+      let response = await fetch(url);
       
-      // NASA o günün verisini henüz yüklemediyse (Saat farkı nedeniyle 404/400 dönebilir)
+      // Eğer anahtar hatası (403) veya tarih hatası (404) alırsak DEMO_KEY'e geç
       if (!response.ok) {
-        alert("Bu tarihe ait veri henüz paylaşılmamış olabilir. Lütfen bir önceki günü seçmeyi deneyin!");
-        setLoading(false);
-        return;
+        console.warn("Anahtar veya tarih sorunu, DEMO_KEY deneniyor...");
+        url = `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`;
+        response = await fetch(url);
       }
 
       const result = await response.json();
       setData(result);
     } catch (error) {
-      console.error("Veri çekilirken hata oluştu:", error);
-      alert("Bir hata oluştu. Lütfen internet bağlantınızı veya API anahtarınızı kontrol edin.");
+      console.error("Bağlantı hatası:", error);
     }
     setLoading(false);
   };
 
-  // Tarih seçimi her değiştiğinde API isteğini tazele
   useEffect(() => {
     fetchSpaceData();
   }, [date]);
@@ -42,14 +40,12 @@ function App() {
     <div className="space-app">
       <header className="header">
         <h1>🌌 Evrenin Derinlikleri</h1>
-        <p>NASA API ile Günün Uzay Görüntüsü</p>
+        <p>NASA API Uzay Rehberi</p>
         <div className="date-picker-container">
-          <label htmlFor="date">Bir Tarih Seçin: </label>
+          <label>Tarih Değiştir: </label>
           <input 
-            id="date"
             type="date" 
             value={date} 
-            // Gelecek tarihler seçilmesin diye sınırı bugüne koyuyoruz
             max={new Date().toISOString().split('T')[0]} 
             onChange={(e) => setDate(e.target.value)} 
           />
@@ -59,7 +55,7 @@ function App() {
       {loading ? (
         <div className="loader-container">
           <div className="loader"></div>
-          <p>Yıldız tozları toplanıyor...</p>
+          <p>Veriler NASA'dan çekiliyor...</p>
         </div>
       ) : (
         data && (
