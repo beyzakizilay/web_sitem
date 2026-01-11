@@ -9,7 +9,7 @@ Bu proje React kullanılarak geliştirilmiş dinamik bir Hava Durumu Uygulaması
 - **Kullanıcı Deneyimi:** Hatalı şehir girişlerinde uyarı mesajı ve veri yüklenirken "Yükleniyor..." bildirimi eklenmiştir.
 
 ## Kullanılan API
-- [OpenWeatherMap API](https://openweathermap.org/)
+- 3adf9c89d798a8f7847571d266ede518 (https://openweathermap.org/)
 
 ## Nasıl Çalıştırılır?
 1. Bu klasörü bilgisayarınıza indirin.
@@ -19,7 +19,8 @@ Bu proje React kullanılarak geliştirilmiş dinamik bir Hava Durumu Uygulaması
 5. Klasördeki `build` klasörü üzerinden de projenin çıktısına ulaşılabilir.
 
 ## Ekran Görüntüsü
-![Uygulama Ekran Görüntüsü](./screenshot.png)
+<img height="300" src="lab/img/hava_durumu1.jpeg">
+<img height="300" src="lab/img/hava_durumu2.jpeg">
 
 ---
 **Hazırlayan:** Beyza Kızılay 
