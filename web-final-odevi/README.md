@@ -16,10 +16,9 @@ Bu proje, React kullanılarak geliştirilmiş, gerçek zamanlı veri çeken bir 
 - **API:** OMDb (Open Movie Database) API
 - **Sürüm Kontrol:** Git & GitHub
 
-## 📸 Ekran Görüntüleri
+## Ekran Görüntüleri
 
-<p align="center">
   <img src="./build/img/anasayfa.png" width="45%" alt="Ana Sayfa" />
   <img src="./build/img/detay.png" width="45%" alt="Film Detay" />
-</p>
+
 
