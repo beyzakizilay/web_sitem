@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   const [data, setData] = useState(null);
-  const [date, setDate] = useState("2025-01-01"); 
+  const [date, setDate] = useState("2024-12-24"); // Kesin çalışan bir tarih
   const [loading, setLoading] = useState(false);
 
   const API_KEY = 'sce8FYEwgxpXdIVBDoJ8S3fqROPcJcTMUwi7vcFo';
@@ -17,7 +17,7 @@ function App() {
       const result = await response.json();
       setData(result);
     } catch (err) {
-      console.error("Veri çekme hatası:", err);
+      console.error("Hata:", err);
     } finally {
       setLoading(false);
     }
@@ -46,23 +46,21 @@ function App() {
       {loading ? (
         <div className="loader-container">
           <div className="loader"></div>
-          <p>Yıldız tozları toplanıyor...</p>
+          <p>Veriler hazırlanıyor...</p>
         </div>
       ) : (
         data && (
           <main className="content-card">
             <h2 className="content-title">{data.title}</h2>
-            
             <div className="media-wrapper">
               {data.media_type === "image" ? (
                 <img src={data.url} alt={data.title} className="space-image" />
               ) : (
-                <div className="video-responsive">
+                <div className="video-container">
                   <iframe title="space-video" src={data.url} frameBorder="0" allowFullScreen></iframe>
                 </div>
               )}
             </div>
-
             <div className="description-section">
               <p className="explanation">{data.explanation}</p>
               <div className="meta-info">
@@ -73,7 +71,6 @@ function App() {
           </main>
         )
       )}
-      
       <footer className="footer">
         <p>Hazırlayan: Beyza Kızılay | 2026</p>
       </footer>
