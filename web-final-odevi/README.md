@@ -19,6 +19,6 @@ Bu proje, React kullanılarak geliştirilmiş, gerçek zamanlı veri çeken bir 
 ## Ekran Görüntüleri
 
 <p align="center">
-  <img src="./build/img/anasayfa.jpeg" width="45%" />
-  <img src="./build/img/detay.jpeg" width="45%" />
+  <img src="../lab/img/anasayfa.jpeg" width="45%" alt="Ana Sayfa" />
+  <img src="../lab/img/detay.jpeg" width="45%" alt="Film Detay" />
 </p>
