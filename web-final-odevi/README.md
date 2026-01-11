@@ -20,8 +20,8 @@ Bu proje React kullanılarak geliştirilmiş dinamik bir Hava Durumu Uygulaması
 
 # Ekran Görüntüsü
 Uygulamanın arayüzüne ve özelliklerine dair görseller aşağıdadır
-<img height="300" src="../lab/img/hava_durumu1.jpeg">
 
+<img height="300" src="../lab/img/hava_durumu1.jpeg">
 <img height="300" src="../lab/img/hava_durumu2.jpeg">
 
 ---
