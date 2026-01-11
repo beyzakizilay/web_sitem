@@ -1,54 +1,85 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Header from './components/Header';
-import Content from './components/Content';
-import Footer from './components/Footer';
 
 function App() {
-  const [city, setCity] = useState('Ankara'); 
-  const [weatherData, setWeatherData] = useState(null);
+  const [data, setData] = useState(null);
+  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  // Senin API Anahtarın
-  const API_KEY = "3adf9c89d798a8f7847571d266ede518"; 
-
-  const fetchWeather = async (cityName) => {
+  const API_KEY = 'sce8FYEwgxpXdIVBDoJ8S3fqROPcJcTMUwi7vcFo';
+  const fetchSpaceData = async () => {
     setLoading(true);
-    setError(null);
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric&lang=tr`
+        `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`
       );
-      if (!response.ok) throw new Error("Şehir bulunamadı!");
-      const data = await response.json();
-      setWeatherData(data);
-    } catch (err) {
-      setError(err.message);
-      setWeatherData(null);
-    } finally {
-      setLoading(false);
+      const result = await response.json();
+      setData(result);
+    } catch (error) {
+      console.error("Veri çekilirken hata oluştu:", error);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
-    fetchWeather(city);
-  }, []);
+    fetchSpaceData();
+  }, [date]);
 
   return (
-    <div className={`app-container ${weatherData ? weatherData.weather[0].main.toLowerCase() : ''}`}>
-      <Header />
-      <div className="search-box">
-        <input 
-          type="text" 
-          placeholder="Şehir giriniz ve Enter'a basın..." 
-          onKeyPress={(e) => e.key === 'Enter' && fetchWeather(e.target.value)}
-        />
-      </div>
-      {loading && <p className="status">Yükleniyor...</p>}
-      {error && <p className="status error">{error}</p>}
-      <Content data={weatherData} />
-      <Footer />
+    <div className="space-app">
+      <header className="header">
+        <h1>🌌 Evrenin Derinlikleri</h1>
+        <p>NASA API ile Günün Uzay Görüntüsü</p>
+        <div className="date-picker-container">
+          <label htmlFor="date">Bir Tarih Seçin: </label>
+          <input 
+            id="date"
+            type="date" 
+            value={date} 
+            max={new Date().toISOString().split('T')[0]} 
+            onChange={(e) => setDate(e.target.value)} 
+          />
+        </div>
+      </header>
+
+      {loading ? (
+        <div className="loader-container">
+          <div className="loader"></div>
+          <p>Yıldız tozları toplanıyor...</p>
+        </div>
+      ) : (
+        data && (
+          <main className="content-card">
+            <h2 className="content-title">{data.title}</h2>
+            
+            <div className="media-wrapper">
+              {data.media_type === "image" ? (
+                <img src={data.url} alt={data.title} className="space-image" />
+              ) : (
+                <iframe 
+                  title="space-video" 
+                  src={data.url} 
+                  frameBorder="0" 
+                  allowFullScreen 
+                  className="space-video"
+                ></iframe>
+              )}
+            </div>
+
+            <div className="description-section">
+              <p className="explanation">{data.explanation}</p>
+              <div className="meta-info">
+                <span><strong>Tarih:</strong> {data.date}</span>
+                {data.copyright && <span><strong>Telif:</strong> {data.copyright}</span>}
+              </div>
+            </div>
+          </main>
+        )
+      )}
+      
+      <footer className="footer">
+        <p>Hazırlayan: Beyza Kızılay | 2026</p>
+      </footer>
     </div>
   );
 }
