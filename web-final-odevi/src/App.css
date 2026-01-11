@@ -1,0 +1,52 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Dinamik Renk Geçişleri */
+.app-container.clear { background: linear-gradient(to top, #f39c12, #f1c40f); }
+.app-container.clouds { background: linear-gradient(to top, #7f8c8d, #bdc3c7); }
+.app-container.rain { background: linear-gradient(to top, #2c3e50, #3498db); color: white; }
+.app-container.snow { background: linear-gradient(to top, #83a4d4, #b6fbff); }
+
+.search-box input {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  width: 100%;
+  max-width: 300px;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.weather-animation {
+  width: 150px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.status { font-weight: bold; margin-top: 10px; }
+.error { color: #e74c3c; background: white; padding: 5px 15px; border-radius: 10px; }
