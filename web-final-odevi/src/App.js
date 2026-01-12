@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header'; 
+import Content from './components/Content'; 
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const API_KEY = '4a36219a'; 
+  const API_KEY = '4a36219a';
 
   const findMovie = async (e) => {
     if (e) e.preventDefault();
@@ -32,58 +34,30 @@ function App() {
 
   return (
     <div className="movie-app">
-      <div className="search-container">
-        <div className="logo-area">
-          <h1>SİNEMA REHBERİ</h1>
-        </div>
-        <div className="typewriter-container">
-          <p className="subtitle">Milyonlarca film ve dizi elinin altında...</p>
-        </div>
-        
-        <form onSubmit={findMovie} className="search-form">
-          <input 
-            type="text" 
-            placeholder="Film adı yazın (örn: Inception)..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button type="submit" className="glow-button">KEŞFET</button>
-        </form>
-      </div>
+      <Header />
+
+      <form onSubmit={findMovie} className="search-form">
+        <input 
+          type="text" 
+          placeholder="Film adı yazın..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button type="submit" className="glow-button">KEŞFET</button>
+      </form>
 
       {loading && (
         <div className="loader-container">
           <div className="loader"></div>
-          <p className="loading-text">Yükleniyor...</p>
+          <p className="loading-text">Sinemaya bağlanılıyor...</p>
         </div>
       )}
 
-      {movie && !loading && (
-        <div className="movie-card">
-          <div className="movie-poster">
-            <img 
-              src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/300x450?text=Afiş+Yok"} 
-              alt={movie.Title} 
-            />
-          </div>
-          <div className="movie-info">
-            <h2>{movie.Title} <span className="year">({movie.Year})</span></h2>
-            <div className="rating">⭐ IMDB: {movie.imdbRating}</div>
-            <div className="tags">
-              <span>{movie.Runtime}</span>
-              <span>{movie.Genre}</span>
-            </div>
-            <p className="plot"><strong>Özet:</strong> {movie.Plot}</p>
-            <div className="cast">
-              <p><strong>Yönetmen:</strong> {movie.Director}</p>
-              <p><strong>Oyuncular:</strong> {movie.Actors}</p>
-            </div>
-          </div>
-        </div>
-      )}
+      {!loading && <Content data={movie} />}
       
       <footer className="footer">
-        <p>Hazırlayan: Beyza Kızılay | Web Tasarım Final Projesi © 2026</p>
+        <p><strong>Beyza Kızılay</strong> | Web Tasarım Final Projesi</p>
+        <p className="api-info">Veriler <span>OMDb API</span> ile çekilmiştir.</p>
       </footer>
     </div>
   );
